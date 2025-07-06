@@ -1,0 +1,69 @@
+einfügen
+"class_Sprite.eos", "class_Player.eos"
+*einfügen
+
+klasse Enemy erweitert BaseObject
+damage :Integer
+strecken_faktor :Integer
+photo :Zeichenkette
+collided:Boolean
+
+
+
+
+
+methode init(photo_value:Zeichenkette, x_pos:Integer, ry1:Integer, ry2:Integer, strecken_value:Integer, damagevalue:Integer, fenstervalue:Fenster)  
+	photo := photo_value
+	ladebild(photo)
+	x := x_pos  
+	y := zufall(ry1, ry2)
+	strecken_faktor := strecken_value
+	strecken(strecken_faktor) 
+	breite := breiteLesen()  
+	höhe := höheLesen()
+	fenstervalue.zeichne(selbst)
+	verschiebenNach(x,y)
+	sichtbarSetzen(falsch)
+*methode
+
+ 
+
+
+methode rotate
+	drehen(5)
+	drehen(-5)
+*methode
+
+
+
+methode update(player:Player)
+	x := xLesen() 
+	y := yLesen()
+
+
+*methode  
+
+
+*klasse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,94 @@
+einfügen
+"class_Sprite.eos","class_Enemy.eos"
+*einfügen
+
+klasse Stage erweitert BaseObject
+health :Integer
+first_hit:Boolean
+second_hit:Boolean 
+third_hit:Boolean 
+fourth_hit:Boolean 
+
+
+
+methode init(photo_value:Zeichenkette, strecken_value:Integer,  fenstervalue:Fenster)  
+	ladebild(photo_value)
+	strecken(strecken_value)
+	fenstervalue.zeichne(selbst)
+	sichtbarSetzen(falsch)
+	first_hit = falsch
+	second_hit = falsch
+	third_hit = falsch
+	fourth_hit = falsch  
+*methode
+
+
+{
+methode moveonstage(player:Player,player_photo:Zeichenkette, text:Textfeld, level:Zeichenkette, first:Enemy, second:Enemy, third:Enemy, fourth:Enemy, speed:Integer)
+
+
+player.ladeBild(player_photo)
+sichtbarSetzen(wahr)
+first.sichtbarSetzen(wahr)
+second.sichtbarSetzen(wahr)	
+third.sichtbarSetzen(wahr)	
+fourth.sichtbarSetzen(wahr)
+text.zeileLöschen()
+text.zeileHinzufügen("Level " + level + "/5")
+
+
+wenn player.collideswith(first) = wahr und first_hit = falsch dann
+
+	player.updatehealth(1)
+
+	first_hitvalue:Boolean
+	first_hitvalue = wahr
+	first_hit = first_hitvalue
+*wenn
+wenn player.collideswith(second) = wahr und second_hit = falsch dann
+	player.updatehealth(1)
+	second_hit = wahr
+*wenn
+wenn player.collideswith(third) = wahr und third_hit = falsch dann
+	player.health =- 1
+	third_hit = wahr
+*wenn
+wenn player.collideswith(fourth) = wahr und fourth_hit = falsch dann
+	player.health =- 1
+	fourth_hit = wahr
+*wenn
+
+
+is_enabled:Boolean
+
+wenn first.xLesen() >= -300 dann
+	first.verschieben(speed,0)
+	third.verschieben(speed,0)
+	
+sonst
+	wenn second.xLesen() >= -300 dann
+		second.verschieben(speed,0)
+		fourth.verschieben(speed,0)
+	
+	sonst
+		sichtbarSetzen(falsch)
+		first.sichtbarSetzen(falsch)
+		second.sichtbarSetzen(falsch)
+		third.sichtbarSetzen(falsch)
+		fourth.sichtbarSetzen(falsch)
+		second.verschieben(-2,0)
+		fourth.verschieben(-2,0)
+		
+	*wenn
+*wenn
+
+
+
+*methode
+}
+*klasse
+
+
+
+
+

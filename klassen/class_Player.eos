@@ -1,0 +1,87 @@
+einfügen
+"class_Sprite.eos"
+*einfügen
+
+klasse Player erweitert BaseObject  
+health :Integer 
+
+strecken_faktor :Integer
+photo :Zeichenkette
+
+
+methode init(photo_value:Zeichenkette, x_pos:Integer, y_pos:Integer, strecken_value:Integer, health_value:Integer,  fenstervalue:Fenster)  
+	photo := photo_value
+	ladebild(photo)
+	x := x_pos  
+	y := y_pos
+	strecken_faktor := strecken_value
+	strecken(strecken_faktor) 
+	breite := breiteLesen()  
+	höhe := höheLesen()
+	health := health_value
+	fenstervalue.zeichne(selbst)
+	verschiebenNach(x,y)
+	sichtbarSetzen(falsch)
+*methode
+
+
+
+
+methode playercontrol(fenster:Fenster, player_photo:player)
+wenn fenster.mausGedrücktLesen() und player_photo.yLesen() <= 90 dann
+	player_photo.verschieben(0,3)
+
+*wenn
+
+
+
+wenn nicht fenster.mausGedrücktLesen() und player_photo.yLesen() >= -80 dann
+	player_photo.verschieben(0,-1)
+
+*wenn
+*methode
+
+
+methode collideswith(other :BaseObject) :Boolean
+	ergebnis = (x + breite > other.x) und  
+           (other.x + other.breite > x) und  
+           (y + höhe > other.y) und  
+           (other.y + other.höhe > y)
+*methode 
+
+
+methode updatehealth(value:Integer)
+	playerhealtvalue:Integer
+	playerhealtvalue = health	
+	health = playerhealtvalue - value
+*methode 
+
+*klasse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

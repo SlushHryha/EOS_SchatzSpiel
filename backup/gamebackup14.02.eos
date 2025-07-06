@@ -1,0 +1,451 @@
+start_background:Grafik
+fenster:Fenster
+
+level:Textfeld
+heart:Textfeld
+
+level1:Boolean
+level2:Boolean
+level3:Boolean
+level4:Boolean
+level5:Boolean
+game_won:Boolean
+game_over:Boolean
+
+//start screen
+start_background.ladeBild("background_start.png")
+start_background.strecken(25)
+fenster.zeichne(start_background)
+
+
+
+
+//level 1 load
+level1_group_1:Gruppe
+level1_group_2:Gruppe
+level1_stage:Grafik
+
+witch1:Grafik
+witch2:Grafik
+witch3:Grafik
+witch4:Grafik
+
+level1_stage.ladeBild("level1.png")
+witch1.ladeBild("witch.png")
+witch2.ladeBild("witch.png")
+witch3.ladeBild("witch.png")
+witch4.ladeBild("witch.png")
+
+witch1_zufall:Integer
+witch2_zufall:Integer
+witch3_zufall:Integer
+witch4_zufall:Integer
+
+witch1_zufall = zufall(-120, 120)
+witch2_zufall = zufall(-120, 120)
+witch3_zufall = zufall(-120, 120)
+witch4_zufall = zufall(-120, 120)
+
+witch1.verschiebenNach(300,witch1_zufall)
+witch2.verschiebenNach(300,witch2_zufall)
+witch3.verschiebenNach(300,witch3_zufall)
+witch4.verschiebenNach(300,witch4_zufall)
+
+level1_stage.strecken(25)
+witch1.strecken(3)
+witch2.strecken(3)
+witch3.strecken(3)
+witch4.strecken(3)
+
+level1_group_1.hinzufügen(witch1)
+level1_group_2.hinzufügen(witch2)
+level1_group_1.hinzufügen(witch3)
+level1_group_2.hinzufügen(witch4)
+
+fenster.zeichne(level1_stage)
+fenster.zeichne(level1_group_1)
+fenster.zeichne(level1_group_2)
+
+level1_stage.sichtbarSetzen(falsch)
+level1_group_1.sichtbarSetzen(falsch)
+level1_group_2.sichtbarSetzen(falsch)
+
+
+//level 2 load
+level2_group_1:Gruppe
+level2_group_2:Gruppe
+level2_stage:Grafik
+
+shark1:Grafik
+shark2:Grafik
+shark3:Grafik
+shark4:Grafik
+
+level2_stage.ladeBild("level2.png")
+shark1.ladeBild("shark.png")
+shark2.ladeBild("shark.png")
+shark3.ladeBild("shark.png")
+shark4.ladeBild("shark.png")
+
+shark1_zufall:Integer
+shark2_zufall:Integer
+shark3_zufall:Integer
+shark4_zufall:Integer
+
+shark1_zufall = zufall(-120, 120)
+shark2_zufall = zufall(-120, 120)
+shark3_zufall = zufall(-120, 120)
+shark4_zufall = zufall(-120, 120)
+
+shark1.verschiebenNach(300,shark1_zufall)
+shark2.verschiebenNach(300,shark2_zufall)
+shark3.verschiebenNach(300,shark3_zufall)
+shark4.verschiebenNach(300,shark4_zufall)
+
+level2_stage.strecken(25)
+shark1.strecken(3)
+shark2.strecken(3)
+shark3.strecken(3)
+shark4.strecken(3)
+
+level2_group_1.hinzufügen(shark1)
+level2_group_2.hinzufügen(shark2)
+level2_group_1.hinzufügen(shark3)
+level2_group_2.hinzufügen(shark4)
+
+fenster.zeichne(level2_stage)
+fenster.zeichne(level2_group_1)
+fenster.zeichne(level2_group_2)
+
+level2_stage.sichtbarSetzen(falsch)
+level2_group_1.sichtbarSetzen(falsch)
+level2_group_2.sichtbarSetzen(falsch)
+
+//level 3 load
+level3_group_1:Gruppe
+level3_group_2:Gruppe
+level3_stage:Grafik
+mummy1:Grafik
+mummy2:Grafik
+mummy3:Grafik
+mummy4:Grafik
+
+level3_stage.ladeBild("level3.png")
+mummy1.ladeBild("mummy.png")
+mummy2.ladeBild("mummy.png")
+mummy3.ladeBild("mummy.png")
+mummy4.ladeBild("mummy.png")
+
+mummy1_zufall:Integer
+mummy2_zufall:Integer
+mummy3_zufall:Integer
+mummy4_zufall:Integer
+
+mummy1_zufall = zufall(-120, 120)
+mummy2_zufall = zufall(-120, 120)
+mummy3_zufall = zufall(-120, 120)
+mummy4_zufall = zufall(-120, 120)
+
+mummy1.verschiebenNach(300,mummy1_zufall)
+mummy2.verschiebenNach(300,mummy2_zufall)
+mummy3.verschiebenNach(300,mummy3_zufall)
+mummy4.verschiebenNach(300,mummy4_zufall)
+
+level3_stage.strecken(25)
+mummy1.strecken(3)
+mummy2.strecken(3)
+mummy3.strecken(3)
+mummy4.strecken(3)
+
+level3_group_1.hinzufügen(mummy1)
+level3_group_2.hinzufügen(mummy2)
+level3_group_1.hinzufügen(mummy3)
+level3_group_2.hinzufügen(mummy4)
+
+fenster.zeichne(level3_stage)
+fenster.zeichne(level3_group_1)
+fenster.zeichne(level3_group_2)
+
+level3_stage.sichtbarSetzen(falsch)
+level3_group_1.sichtbarSetzen(falsch)
+level3_group_2.sichtbarSetzen(falsch)
+
+
+//level 4 load
+level4_group_1:Gruppe
+level4_group_2:Gruppe
+level4_stage:Grafik
+
+snow1:Grafik
+snow2:Grafik
+snow3:Grafik
+snow4:Grafik
+
+level4_stage.ladeBild("level4.png")
+snow1.ladeBild("snow.png")
+snow2.ladeBild("snow.png")
+snow3.ladeBild("snow.png")
+snow4.ladeBild("snow.png")
+
+snow1_zufall:Integer
+snow2_zufall:Integer
+snow3_zufall:Integer
+snow4_zufall:Integer
+
+snow1_zufall = zufall(-120, 120)
+snow2_zufall = zufall(-120, 120)
+snow3_zufall = zufall(-120, 120)
+snow4_zufall = zufall(-120, 120)
+
+snow1.verschiebenNach(300,snow1_zufall)
+snow2.verschiebenNach(300,snow2_zufall)
+snow3.verschiebenNach(300,snow3_zufall)
+snow4.verschiebenNach(300,snow4_zufall)
+
+level4_stage.strecken(25)
+snow1.strecken(3)
+snow2.strecken(3)
+snow3.strecken(3)
+snow4.strecken(3)
+
+level4_group_1.hinzufügen(snow1)
+level4_group_2.hinzufügen(snow2)
+level4_group_1.hinzufügen(snow3)
+level4_group_2.hinzufügen(snow4)
+
+fenster.zeichne(level4_stage)
+fenster.zeichne(level4_group_1)
+fenster.zeichne(level4_group_2)
+
+level4_stage.sichtbarSetzen(falsch)
+level4_group_1.sichtbarSetzen(falsch)
+level4_group_2.sichtbarSetzen(falsch)
+
+//level 5 load
+
+level5_stage:Grafik
+
+dragon:Grafik
+
+level5_stage.ladeBild("level5.png")
+dragon.ladeBild("dragon.png")
+
+dragon_zufall:Integer
+
+dragon_zufall = zufall(-120, 120)
+dragon.verschiebenNach(300,dragon_zufall)
+
+
+level5_stage.strecken(25)
+dragon.strecken(10)
+
+
+
+fenster.zeichne(level5_stage)
+fenster.zeichne(dragon)
+
+
+level5_stage.sichtbarSetzen(falsch)
+dragon.sichtbarSetzen(falsch)
+
+
+
+
+// start
+wiederhole solange nicht fenster.mausGedrücktLesen()
+*wiederhole
+start_background.sichtbarSetzen(falsch)
+
+
+level.verschiebenNach(7,108)
+fenster.zeichne(level)
+level.schriftgrößeSetzen(75)
+
+
+player_photo:Grafik
+
+player_photo.ladeBild("plyer.png")
+player_photo.strecken(4)
+player_photo.verschiebenNach(-160,-45)
+fenster.zeichne(player_photo)
+
+
+methode player_control
+
+wenn fenster.mausGedrücktLesen() und player_photo.yLesen() <= 90 dann
+	player_photo.verschieben(0,3)
+
+*wenn
+
+wenn nicht fenster.mausGedrücktLesen() und player_photo.yLesen() >= -60 dann
+	player_photo.verschieben(0,-1)
+
+*wenn
+
+*methode
+
+
+
+
+
+level1 = wahr
+level2 = falsch
+level3 = falsch
+level4 = falsch
+level5 = falsch
+game_over = falsch
+game_won = falsch
+
+wiederhole immer
+
+
+
+wenn level1 = wahr dann
+	player_control()
+	player_photo.ladeBild("player1.png")
+	level1_stage.sichtbarSetzen(wahr)
+	level1_group_1.sichtbarSetzen(wahr)
+	level1_group_2.sichtbarSetzen(wahr)
+	level.zeileLöschen()
+	level.zeileHinzufügen("Level 1/5")
+	wenn level1_group_1.xLesen() >= -300 dann
+		level1_group_1.verschieben(-0.5,0)
+	sonst
+		wenn level1_group_2.xLesen() >= -300 dann
+			level1_group_2.verschieben(-0.5,0)
+		sonst
+			level1 = falsch
+			level1_stage.sichtbarSetzen(falsch)
+			level1_group_1.sichtbarSetzen(falsch)
+			level1_group_2.sichtbarSetzen(falsch)
+			level2 = wahr
+		*wenn
+
+	*wenn
+sonst
+	wenn level2 = wahr dann
+		player_control()
+		player_photo.ladeBild("player2.png")
+		level2_stage.sichtbarSetzen(wahr)
+		level2_group_1.sichtbarSetzen(wahr)
+		level2_group_2.sichtbarSetzen(wahr)
+		level.zeileLöschen()
+		level.zeileHinzufügen("Level 2/5")
+		wenn level2_group_1.xLesen() >= -300 dann
+			level2_group_1.verschieben(-1,0)
+		sonst
+			wenn level2_group_2.xLesen() >= -300 dann
+				level2_group_2.verschieben(-1,0)
+			sonst
+				level2 = falsch
+				level2_stage.sichtbarSetzen(falsch)
+				level2_group_1.sichtbarSetzen(falsch)
+				level2_group_2.sichtbarSetzen(falsch)
+				level3 = wahr
+			*wenn
+
+		*wenn
+	sonst
+		wenn level3 = wahr dann
+			player_control()
+			player_photo.ladeBild("player3.png")
+			level3_stage.sichtbarSetzen(wahr)
+			level3_group_1.sichtbarSetzen(wahr)
+			level3_group_2.sichtbarSetzen(wahr)
+			level.zeileLöschen()
+			level.zeileHinzufügen("Level 3/5")
+			wenn level3_group_1.xLesen() >= -300 dann
+				level3_group_1.verschieben(-1.5,0)
+			sonst
+				wenn level3_group_2.xLesen() >= -300 dann
+					level3_group_2.verschieben(-1.5,0)
+				sonst
+					level3 = falsch
+					level3_stage.sichtbarSetzen(falsch)
+					level3_group_1.sichtbarSetzen(falsch)
+					level3_group_2.sichtbarSetzen(falsch)
+					level4 = wahr
+				*wenn
+
+			*wenn
+		sonst
+			wenn level4 = wahr dann
+				player_control()
+				player_photo.ladeBild("player4.png")
+				level4_stage.sichtbarSetzen(wahr)
+				level4_group_1.sichtbarSetzen(wahr)
+				level4_group_2.sichtbarSetzen(wahr)
+				level.zeileLöschen()
+				level.zeileHinzufügen("Level 4/5")
+				wenn level4_group_1.xLesen() >= -300 dann
+					level4_group_1.verschieben(-2,0)
+				sonst
+					wenn level4_group_2.xLesen() >= -300 dann
+						level4_group_2.verschieben(-2,0)
+					sonst
+						level4 = falsch
+						level4_stage.sichtbarSetzen(falsch)
+						level4_group_1.sichtbarSetzen(falsch)
+						level4_group_2.sichtbarSetzen(falsch)
+						level5 = wahr
+					*wenn
+				*wenn
+			sonst
+				wenn level5 = wahr dann
+					player_control()
+					player_photo.ladeBild("player5.png")
+					level5_stage.sichtbarSetzen(wahr)
+					dragon.sichtbarSetzen(wahr)
+					level.zeileLöschen()
+					level.zeileHinzufügen("Level 5/5 BOSS!!")
+					wenn dragon.xLesen() >= -300 dann
+						dragon.verschieben(-2,0)
+						dragon.verschiebenNach(dragon.xLesen(),player_photo.yLesen())
+					sonst
+						level5 = falsch
+						level5_stage.sichtbarSetzen(falsch)
+						dragon.sichtbarSetzen(falsch)
+						game_won = wahr
+					*wenn
+				sonst
+					wenn game_won = wahr dann
+						player_photo.ladeBild("player5.png")
+						level5_stage.sichtbarSetzen(wahr)
+						dragon.sichtbarSetzen(wahr)
+						level.zeileLöschen()
+						level.zeileHinzufügen("Level 5/5 BOSS!!")
+						wenn dragon.xLesen() >= -300 dann
+							dragon.verschieben(-2,0)
+							dragon.verschiebenNach(dragon.xLesen(),player_photo.yLesen())
+						sonst
+							level5 = falsch
+							level5_stage.sichtbarSetzen(falsch)
+							dragon.sichtbarSetzen(falsch)
+							game_won = wahr
+						*wenn
+					*wenn
+				*wenn
+			*wenn
+	*wenn	*wenn
+*wenn
+
+*wiederhole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

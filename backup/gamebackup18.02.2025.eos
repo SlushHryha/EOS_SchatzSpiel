@@ -1,0 +1,343 @@
+einfügen
+"class_Enemy.eos", "class_Player.eos", "class_Stage.eos", "class_LevelMonitor.eos"
+*einfügen
+
+
+
+fenster:Fenster
+level:Textfeld
+heart:Textfeld
+heart_amount:Integer
+
+
+
+level1_isenabled:Boolean
+level2_isenabled:Boolean
+level3_isenabled:Boolean
+level4_isenabled:Boolean
+level5_isenabled:Boolean
+game_won:Boolean
+game_over:Boolean
+
+//start screen
+start_background:Stage
+start_background.init("start_background.png",25,fenster)
+
+//level 1 load
+level1_stage:Stage
+witch1:Enemy
+witch2:Enemy
+witch3:Enemy
+witch4:Enemy
+
+level1_stage.init("level1.png",25,fenster)
+witch1.init("witch.png",300,-120,120,3,1,fenster)
+witch2.init("witch.png",300,-120,120,3,1,fenster)
+witch3.init("witch.png",300,-120,120,3,1,fenster)
+witch4.init("witch.png",300,-120,120,3,1,fenster)
+
+//level 2 load
+level2_stage:Stage
+shark1:Enemy
+shark2:Enemy
+shark3:Enemy
+shark4:Enemy
+
+level2_stage.init("level2.png",25,fenster)
+shark1.init("shark.png",300,-120,120,3,1,fenster)
+shark2.init("shark.png",300,-120,120,3,1,fenster)
+shark3.init("shark.png",300,-120,120,3,1,fenster)
+shark4.init("shark.png",300,-120,120,3,1,fenster)
+
+//level 3 load
+level3_stage:Stage
+mummy1:Enemy
+mummy2:Enemy
+mummy3:Enemy
+mummy4:Enemy
+
+level3_stage.init("level3.png",25,fenster)
+mummy1.init("mummy.png",300,-120,120,3,1,fenster)
+mummy2.init("mummy.png",300,-120,120,3,1,fenster)
+mummy3.init("mummy.png",300,-120,120,3,1,fenster)
+mummy4.init("mummy.png",300,-120,120,3,1,fenster)
+
+//level 4 load
+
+level4_stage:Stage
+snow1:Enemy
+snow2:Enemy
+snow3:Enemy
+snow4:Enemy
+
+level4_stage.init("level4.png",25,fenster)
+snow1.init("snow.png",300,-120,120,3,1,fenster)
+snow2.init("snow.png",300,-120,120,3,1,fenster)
+snow3.init("snow.png",300,-120,120,3,1,fenster)
+snow4.init("snow.png",300,-120,120,3,1,fenster)
+
+//level 5 load
+
+level5_stage:Stage
+dragon:Enemy
+dragon.init("dragon.png",300,-120,120,10,1,fenster)
+level5_stage.init("level5.png",25,fenster)
+
+
+//game over and won load
+gamewon_stage:Stage
+gameover_stage:Stage
+
+gamewon_stage.init("gamewon.png",25,fenster)
+gameover_stage.init("gameover.png",25,fenster)
+
+
+start_background.sichtbarSetzen(wahr)
+// start
+wiederhole solange nicht fenster.mausGedrücktLesen()
+*wiederhole
+start_background.sichtbarSetzen(falsch)
+
+
+level.verschiebenNach(7,120)
+fenster.zeichne(level)
+level.schriftgrößeSetzen(75)
+
+heart.verschiebenNach(170,120)
+fenster.zeichne(heart)
+heart.schriftgrößeSetzen(75)
+
+
+player_photo:Player
+player_photo.init("player1.png",-160,-45,4,2,fenster)
+
+
+
+{
+methode player_control
+
+player_photo.sichtbarSetzen(wahr)
+player_photo.update(0)
+
+
+
+heart.zeileLöschen()
+heart.zeileHinzufügen(player_photo.health)
+
+*methode
+
+witch1.update(player_photo)
+witch2.update(player_photo)
+witch3.update(player_photo)
+witch4.update(player_photo)
+}
+
+health :Integer
+first_hit:Boolean
+second_hit:Boolean 
+third_hit:Boolean 
+fourth_hit:Boolean
+
+
+
+
+methode moveonstage(player:Player,player_photo_link:Zeichenkette, text:Textfeld, level_number:Zeichenkette, first:Enemy, second:Enemy, third:Enemy, fourth:Enemy, speed:Integer,stage:Stage)
+
+
+player.ladeBild(player_photo_link)
+stage.sichtbarSetzen(wahr)
+first.sichtbarSetzen(wahr)
+second.sichtbarSetzen(wahr)	
+third.sichtbarSetzen(wahr)	
+fourth.sichtbarSetzen(wahr)
+text.zeileLöschen()
+text.zeileHinzufügen("Level " + level_number + "/5")
+
+
+wenn player.collideswith(first) = wahr und first_hit = falsch dann
+
+	player.updatehealth(1)
+	first_hit = wahr
+*wenn
+wenn player.collideswith(second) = wahr und second_hit = falsch dann
+	player.updatehealth(1)
+	second_hit = wahr
+*wenn
+wenn player.collideswith(third) = wahr und third_hit = falsch dann
+	player.updatehealth(1)
+	third_hit = wahr
+*wenn
+wenn player.collideswith(fourth) = wahr und fourth_hit = falsch dann
+	player.updatehealth(1)
+	fourth_hit = wahr
+*wenn
+
+
+is_enabled:Boolean
+
+wenn first.xLesen() >= -300 dann
+	first.verschieben(speed,0)
+	third.verschieben(speed,0)
+	
+sonst
+	wenn second.xLesen() >= -300 dann
+		second.verschieben(speed,0)
+		fourth.verschieben(speed,0)
+	
+	sonst
+		stage.sichtbarSetzen(falsch)
+		first.sichtbarSetzen(falsch)
+		second.sichtbarSetzen(falsch)
+		third.sichtbarSetzen(falsch)
+		fourth.sichtbarSetzen(falsch)
+		second.verschieben(-2,0)
+		fourth.verschieben(-2,0)
+		
+	*wenn
+*wenn
+
+
+
+*methode
+
+
+
+
+player_photo.sichtbarSetzen(wahr)
+
+
+
+level1_isenabled = wahr
+level2_isenabled = falsch
+level3_isenabled = falsch
+level4_isenabled = falsch
+level5_isenabled = falsch
+game_over = falsch
+game_won = falsch
+
+
+
+wiederhole immer
+
+//if
+wenn level1_isenabled = wahr dann
+	//while
+	wiederhole solange witch4.xLesen() >= -302 und game_over = falsch
+	playerhealthvalue:Integer 
+	playerhealthvalue = player_photo.health
+		wenn playerhealthvalue <= 0 dann
+			game_over = wahr
+		*wenn
+		heart.zeileLöschen()
+		heart.zeileHinzufügen(player_photo.health)
+		player_photo.playercontrol(fenster,player_photo)
+		moveonstage(player_photo, "player1.png",level, "1", witch1, witch2 ,witch3, witch4, -1,level1_stage )
+	*wiederhole
+	level1_isenabled = falsch
+	level2_isenabled = wahr
+	first_hit = falsch
+	second_hit = falsch 
+	third_hit = falsch 
+	fourth_hit = falsch
+sonst
+
+	wenn level2_isenabled = wahr dann	
+		wiederhole solange shark4.xLesen() >= -302 und game_over = falsch
+			playerhealthvalue = player_photo.health
+			wenn playerhealthvalue <= 0 dann
+				game_over = wahr
+			*wenn
+			heart.zeileLöschen()
+			heart.zeileHinzufügen(player_photo.health)
+			player_photo.playercontrol(fenster,player_photo)
+			moveonstage(player_photo, "player2.png",level, "2", shark1, shark2 ,shark3, shark4, -1.5,level2_stage)
+		*wiederhole
+		level2_isenabled = falsch
+		level3_isenabled = wahr
+		first_hit = falsch
+		second_hit = falsch 
+		third_hit = falsch 
+		fourth_hit = falsch
+	sonst
+		wenn level3_isenabled = wahr dann
+		wiederhole solange mummy4.xLesen() >= -302 und game_over = falsch
+			playerhealthvalue = player_photo.health
+			wenn playerhealthvalue <= 0 dann
+				game_over = wahr
+			*wenn
+			heart.zeileLöschen()
+			heart.zeileHinzufügen(player_photo.health)
+			player_photo.playercontrol(fenster,player_photo)
+			moveonstage(player_photo, "player3.png",level, "3", mummy1,  mummy2 , mummy3,  mummy4, -2, level3_stage)
+		*wiederhole
+		level3_isenabled = falsch
+		level4_isenabled = wahr
+		first_hit = falsch
+		second_hit = falsch 
+		third_hit = falsch 
+		fourth_hit = falsch
+
+		sonst
+			wenn level4_isenabled = wahr dann
+			wiederhole solange snow4.xLesen() >= -302 und game_over = falsch
+			playerhealthvalue = player_photo.health
+			wenn playerhealthvalue <= 0 dann
+				game_over = wahr
+			*wenn
+				heart.zeileLöschen()
+				heart.zeileHinzufügen(player_photo.health)
+				player_photo.playercontrol(fenster,player_photo)
+				moveonstage(player_photo, "player4.png",level, "4", snow1, snow2 ,snow3, snow4, -2.5, level4_stage)
+			*wiederhole
+			level4_isenabled = falsch
+			level5_isenabled = wahr
+			first_hit = falsch
+			second_hit = falsch 
+			third_hit = falsch 
+			fourth_hit = falsch
+			sonst
+				wenn 	level5_isenabled = wahr dann
+				wiederhole solange game_won = falsch und game_over = falsch
+					playerhealthvalue = player_photo.health
+					wenn playerhealthvalue <= 0 dann
+						game_over = wahr
+					*wenn
+					heart.zeileLöschen()
+					heart.zeileHinzufügen(player_photo.health)
+					player_photo.playercontrol(fenster,player_photo)
+					moveonstage(player_photo, "player5.png",level, "5", witch1, witch2 ,witch3, witch4, -3, level5_stage) 
+
+				*wiederhole
+					level5_isenabled = falsch
+					game_won = wahr
+					first_hit = falsch
+					second_hit = falsch 
+					third_hit = falsch 
+					fourth_hit = falsch
+				*wenn
+			*wenn
+	*wenn	*wenn
+*wenn
+
+
+wenn game_over = wahr dann
+	gameover_stage.sichtbarSetzen(wahr)
+	wiederhole solange nicht fenster.mausGedrücktLesen()
+	*wiederhole
+	level1_isenabled = wahr
+	level2_isenabled = falsch
+	level3_isenabled = falsch
+	level4_isenabled = falsch
+	level5_isenabled = falsch
+	game_over = falsch
+	game_won = falsch
+*wenn
+
+*wiederhole
+
+
+
+
+
+
+

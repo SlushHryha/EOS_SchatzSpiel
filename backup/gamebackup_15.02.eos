@@ -1,0 +1,457 @@
+einfügen
+"class_Enemy.eos", "class_Player.eos", "class_ElObject.eos"
+*einfügen
+
+
+start_background:Grafik
+fenster:Fenster
+
+level:Textfeld
+heart:Textfeld
+heart_amount:Integer
+
+heart_amount := 5
+
+level1:Boolean
+level2:Boolean
+level3:Boolean
+level4:Boolean
+level5:Boolean
+game_won:Boolean
+game_over:Boolean
+
+//start screen
+start_background.ladeBild("background_start.png")
+start_background.strecken(25)
+fenster.zeichne(start_background)
+
+
+
+//level 1 load
+level1_group_1:Gruppe
+level1_group_2:Gruppe
+level1_stage:Grafik
+
+witch1:Enemy
+witch2:Enemy
+witch3:Enemy
+witch4:Enemy
+
+level1_stage.ladeBild("level1.png")
+level1_stage.strecken(25)
+
+witch1.init("witch.png",300,-120,120,3,1)
+witch2.init("witch.png",300,-120,120,3,1)
+witch3.init("witch.png",300,-120,120,3,1)
+witch4.init("witch.png",300,-120,120,3,1)
+
+
+
+fenster.zeichne(level1_stage)
+fenster.zeichne(witch1)
+fenster.zeichne(witch2)
+fenster.zeichne(witch3)
+fenster.zeichne(witch4)
+
+level1_stage.sichtbarSetzen(falsch)
+witch1.sichtbarSetzen(falsch)
+witch2.sichtbarSetzen(falsch)
+witch3.sichtbarSetzen(falsch)
+witch4.sichtbarSetzen(falsch)
+
+
+
+
+//level 2 load
+level2_group_1:Gruppe
+level2_group_2:Gruppe
+level2_stage:Grafik
+
+shark1:Enemy
+shark2:Enemy
+shark3:Enemy
+shark4:Enemy
+
+level2_stage.ladeBild("level2.png")
+level2_stage.strecken(25)
+
+shark1.init("shark.png",300,-120,120,3,1)
+shark2.init("shark.png",300,-120,120,3,1)
+shark3.init("shark.png",300,-120,120,3,1)
+shark4.init("shark.png",300,-120,120,3,1)
+
+fenster.zeichne(level2_stage)
+fenster.zeichne(shark1)
+fenster.zeichne(shark2)
+fenster.zeichne(shark3)
+fenster.zeichne(shark4)
+
+level2_stage.sichtbarSetzen(falsch)
+shark1.sichtbarSetzen(falsch)
+shark2.sichtbarSetzen(falsch)
+shark3.sichtbarSetzen(falsch)
+shark4.sichtbarSetzen(falsch)
+
+//level 3 load
+level3_group_1:Gruppe
+level3_group_2:Gruppe
+level3_stage:Grafik
+
+mummy1:Enemy
+mummy2:Enemy
+mummy3:Enemy
+mummy4:Enemy
+
+level3_stage.ladeBild("level3.png")
+level3_stage.strecken(25)
+
+mummy1.init("mummy.png",300,-120,120,3,1)
+mummy2.init("mummy.png",300,-120,120,3,1)
+mummy3.init("mummy.png",300,-120,120,3,1)
+mummy4.init("mummy.png",300,-120,120,3,1)
+
+fenster.zeichne(level3_stage)
+fenster.zeichne(mummy1)
+fenster.zeichne(mummy2)
+fenster.zeichne(mummy3)
+fenster.zeichne(mummy4)
+
+level3_stage.sichtbarSetzen(falsch)
+mummy1.sichtbarSetzen(falsch)
+mummy2.sichtbarSetzen(falsch)
+mummy3.sichtbarSetzen(falsch)
+mummy4.sichtbarSetzen(falsch)
+
+
+//level 4 load
+level4_group_1:Gruppe
+level4_group_2:Gruppe
+level4_stage:Grafik
+
+level4_stage.strecken(2)
+
+
+
+snow1:Enemy
+snow2:Enemy
+snow3:Enemy
+snow4:Enemy
+
+level4_stage.ladeBild("level4.png")
+level4_stage.strecken(25)
+
+snow1.init("snow.png",300,-120,120,3,1)
+snow2.init("snow.png",300,-120,120,3,1)
+snow3.init("snow.png",300,-120,120,3,1)
+snow4.init("snow.png",300,-120,120,3,1)
+
+fenster.zeichne(level4_stage)
+fenster.zeichne(snow1)
+fenster.zeichne(snow2)
+fenster.zeichne(snow3)
+fenster.zeichne(snow4)
+
+level4_stage.sichtbarSetzen(falsch)
+snow1.sichtbarSetzen(falsch)
+snow2.sichtbarSetzen(falsch)
+snow3.sichtbarSetzen(falsch)
+snow4.sichtbarSetzen(falsch)
+
+//level 5 load
+
+level5_stage:Grafik
+
+dragon:Grafik
+
+level5_stage.ladeBild("level5.png")
+dragon.ladeBild("dragon.png")
+
+dragon_zufall:Integer
+
+dragon_zufall = zufall(-120, 120)
+dragon.verschiebenNach(300,dragon_zufall)
+
+
+level5_stage.strecken(25)
+dragon.strecken(10)
+
+
+
+fenster.zeichne(level5_stage)
+fenster.zeichne(dragon)
+
+
+level5_stage.sichtbarSetzen(falsch)
+dragon.sichtbarSetzen(falsch)
+
+
+
+
+// start
+wiederhole solange nicht fenster.mausGedrücktLesen()
+*wiederhole
+start_background.sichtbarSetzen(falsch)
+
+
+level.verschiebenNach(7,108)
+fenster.zeichne(level)
+level.schriftgrößeSetzen(75)
+
+heart.verschiebenNach(50,108)
+fenster.zeichne(heart)
+heart.schriftgrößeSetzen(75)
+
+
+player_photo:Player
+
+player_photo.init("plyer.png",-160,-45,4,5)
+fenster.zeichne(player_photo)
+
+texttest:Textfeld
+texttest.verschiebenNach(-160,-45)
+fenster.zeichne(texttest)
+
+texttest1:Textfeld
+texttest1.verschiebenNach(-160,-80)
+fenster.zeichne(texttest1)
+
+texttest2:Textfeld
+texttest2.verschiebenNach(-160,-60)
+fenster.zeichne(texttest2)
+
+methode player_control
+
+player_photo.update(0)
+witch1.update(0)
+witch2.update(0)
+witch3.update(0)
+witch4.update(0)
+
+heart.zeileLöschen()
+heart.zeileHinzufügen(heart_amount)
+
+
+
+
+wenn player_photo.collidesWith(witch1) = wahr dann
+	heart_amount =- 1
+sonst
+	wenn player_photo.collidesWith(witch2) = wahr dann
+		heart_amount =- 1
+	sonst
+		wenn player_photo.collidesWith(witch3) = wahr dann
+			heart_amount =- 1
+		sonst
+			wenn player_photo.collidesWith(witch4) = wahr dann
+				heart_amount =- 1
+			sonst
+				wenn player_photo.collidesWith(shark1) = wahr dann
+					heart_amount =- 1
+				sonst
+					wenn player_photo.collidesWith(shark2) = wahr dann
+						heart_amount =- 1
+					sonst
+						wenn player_photo.collidesWith(shark3) = wahr dann
+							heart_amount =- 1
+						sonst
+							wenn player_photo.collidesWith(shark4) = wahr dann
+								heart_amount =- 1
+							sonst
+		
+							*wenn
+						*wenn
+					*wenn
+				*wenn
+
+			*wenn
+		*wenn
+	*wenn
+*wenn
+
+
+
+wenn fenster.mausGedrücktLesen() und player_photo.yLesen() <= 90 dann
+	player_photo.verschieben(0,3)
+
+*wenn
+
+
+
+wenn nicht fenster.mausGedrücktLesen() und player_photo.yLesen() >= -60 dann
+	player_photo.verschieben(0,-1)
+
+*wenn
+
+*methode
+
+
+
+
+
+level1 = wahr
+level2 = falsch
+level3 = falsch
+level4 = falsch
+level5 = falsch
+game_over = falsch
+game_won = falsch
+
+wiederhole immer
+
+
+
+wenn level1 = wahr dann
+	player_control()
+	player_photo.ladeBild("player1.png")
+	level1_stage.sichtbarSetzen(wahr)
+	witch1.sichtbarSetzen(wahr)
+	witch2.sichtbarSetzen(wahr)
+	witch3.sichtbarSetzen(wahr)
+	witch4.sichtbarSetzen(wahr)
+	level.zeileLöschen()
+	level.zeileHinzufügen("Level 1/5")
+	wenn witch1.xLesen() >= -300 dann
+		witch1.verschieben(-2,0)
+		witch3.verschieben(-2,0)
+	sonst
+		wenn witch2.xLesen() >= -300 dann
+			witch2.verschieben(-2,0)
+			witch3.verschieben(-2,0)
+		sonst
+			level1 = falsch
+			level1_stage.sichtbarSetzen(wahr)
+			witch1.sichtbarSetzen(wahr)
+			witch2.sichtbarSetzen(wahr)
+			witch3.sichtbarSetzen(wahr)
+			witch4.sichtbarSetzen(wahr)
+			level2 = wahr
+		*wenn
+
+	*wenn
+sonst
+	wenn level2 = wahr dann
+		player_control()
+		player_photo.ladeBild("player2.png")
+		level2_stage.sichtbarSetzen(wahr)
+		level2_group_1.sichtbarSetzen(wahr)
+		level2_group_2.sichtbarSetzen(wahr)
+		level.zeileLöschen()
+		level.zeileHinzufügen("Level 2/5")
+		wenn level2_group_1.xLesen() >= -300 dann
+			level2_group_1.verschieben(-1,0)
+		sonst
+			wenn level2_group_2.xLesen() >= -300 dann
+				level2_group_2.verschieben(-1,0)
+			sonst
+				level2 = falsch
+				level2_stage.sichtbarSetzen(falsch)
+				level2_group_1.sichtbarSetzen(falsch)
+				level2_group_2.sichtbarSetzen(falsch)
+				level3 = wahr
+			*wenn
+
+		*wenn
+	sonst
+		wenn level3 = wahr dann
+			player_control()
+			player_photo.ladeBild("player3.png")
+			level3_stage.sichtbarSetzen(wahr)
+			level3_group_1.sichtbarSetzen(wahr)
+			level3_group_2.sichtbarSetzen(wahr)
+			level.zeileLöschen()
+			level.zeileHinzufügen("Level 3/5")
+			wenn level3_group_1.xLesen() >= -300 dann
+				level3_group_1.verschieben(-1.5,0)
+			sonst
+				wenn level3_group_2.xLesen() >= -300 dann
+					level3_group_2.verschieben(-1.5,0)
+				sonst
+					level3 = falsch
+					level3_stage.sichtbarSetzen(falsch)
+					level3_group_1.sichtbarSetzen(falsch)
+					level3_group_2.sichtbarSetzen(falsch)
+					level4 = wahr
+				*wenn
+
+			*wenn
+		sonst
+			wenn level4 = wahr dann
+				player_control()
+				player_photo.ladeBild("player4.png")
+				level4_stage.sichtbarSetzen(wahr)
+				level4_group_1.sichtbarSetzen(wahr)
+				level4_group_2.sichtbarSetzen(wahr)
+				level.zeileLöschen()
+				level.zeileHinzufügen("Level 4/5")
+				wenn level4_group_1.xLesen() >= -300 dann
+					level4_group_1.verschieben(-2,0)
+				sonst
+					wenn level4_group_2.xLesen() >= -300 dann
+						level4_group_2.verschieben(-2,0)
+					sonst
+						level4 = falsch
+						level4_stage.sichtbarSetzen(falsch)
+						level4_group_1.sichtbarSetzen(falsch)
+						level4_group_2.sichtbarSetzen(falsch)
+						level5 = wahr
+					*wenn
+				*wenn
+			sonst
+				wenn level5 = wahr dann
+					player_control()
+					player_photo.ladeBild("player5.png")
+					level5_stage.sichtbarSetzen(wahr)
+					dragon.sichtbarSetzen(wahr)
+					level.zeileLöschen()
+					level.zeileHinzufügen("Level 5/5 BOSS!!")
+					wenn dragon.xLesen() >= -300 dann
+						dragon.verschieben(-2,0)
+						dragon.verschiebenNach(dragon.xLesen(),player_photo.yLesen())
+					sonst
+						level5 = falsch
+						level5_stage.sichtbarSetzen(falsch)
+						dragon.sichtbarSetzen(falsch)
+						game_won = wahr
+					*wenn
+				sonst
+					wenn game_won = wahr dann
+						player_photo.ladeBild("player5.png")
+						level5_stage.sichtbarSetzen(wahr)
+						dragon.sichtbarSetzen(wahr)
+						level.zeileLöschen()
+						level.zeileHinzufügen("Level 5/5 BOSS!!")
+						wenn dragon.xLesen() >= -300 dann
+							dragon.verschieben(-2,0)
+							dragon.verschiebenNach(dragon.xLesen(),player_photo.yLesen())
+						sonst
+							level5 = falsch
+							level5_stage.sichtbarSetzen(falsch)
+							dragon.sichtbarSetzen(falsch)
+							game_won = wahr
+						*wenn
+					*wenn
+				*wenn
+			*wenn
+	*wenn	*wenn
+*wenn
+
+*wiederhole
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

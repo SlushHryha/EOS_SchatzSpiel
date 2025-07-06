@@ -1,0 +1,18 @@
+einfügen
+"class_Witch.eos", "class_Player.eos"
+*einfügen
+
+player:Player
+player.init(0,0,56,78,12)
+
+witch1:Witch
+witch1.init(0,0,56,78)
+
+
+isCollide:Boolean
+
+isCollide = player.collidesWith(witch1)
+
+zeichenkette:Textfeld
+
+zeichenkette.zeileHinzufügen(isCollide)

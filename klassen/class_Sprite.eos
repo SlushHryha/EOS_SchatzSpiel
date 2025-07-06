@@ -1,0 +1,48 @@
+klasse BaseObject erweitert Grafik
+
+
+
+strecken_faktor :Integer
+photo :Zeichenkette
+
+
+methode init(photo_value:Zeichenkette, x_pos:Integer, ry1:Integer, ry2:Integer, strecken_value:Integer)  
+	photo := photo_value
+	ladebild(photo)
+	x := x_pos  
+	y := zufall(ry1, ry2)
+	strecken_faktor := strecken_value
+	strecken(strecken_faktor) 
+	breite := breiteLesen()  
+	höhe := höheLesen()
+	verschiebenNach(x,y)
+*methode
+
+methode update  
+	x := xLesen() 
+	y := yLesen()
+*methode     
+
+
+*klasse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

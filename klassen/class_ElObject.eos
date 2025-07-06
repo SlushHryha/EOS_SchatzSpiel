@@ -1,0 +1,35 @@
+klasse ElObject erweitert Grafik
+
+
+health :Integer 
+
+
+methode init(xpos:Integer, ypos:Integer, b:Integer, h:Integer, valuehealth:Integer)  
+	x = xPos 
+	y = yPos
+	breite = b  
+	höhe = h
+	health = valuehealth
+*methode
+*klasse
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

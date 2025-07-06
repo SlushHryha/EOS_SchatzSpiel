@@ -1,0 +1,48 @@
+einfügen
+"class_Enemy.eos", "class_Player.eos", "class_ElObject.eos"
+*einfügen
+
+
+player:Player
+texttest:Textfeld
+witch:Enemy
+fenstter:Fenster
+
+player.ladeBild("player1.png")
+witch.ladeBild("witch.png")
+texttest.verschiebenNach(0,100)
+texttest.schriftgrößeSetzen(25)
+
+fenstter.zeichne(witch)
+fenstter.zeichne(player)
+fenstter.zeichne(texttest)
+
+player.strecken(6)
+witch.strecken(6)
+
+
+
+methode test
+wenn player.collidesWith(witch) = wahr dann
+	texttest.zeileLöschen()
+	texttest.zeileHinzufügen("collidit")
+sonst
+	texttest.zeileLöschen()
+	texttest.zeileHinzufügen("nicht collidit")
+*wenn
+*methode
+
+
+witch.verschiebenNach(-300,0)
+player.verschiebenNach(0,-300)
+
+wiederhole immer
+test()
+witch.verschieben(1,0)
+player.verschieben(0,1)
+*wiederhole
+
+
+
+
+

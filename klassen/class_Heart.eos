@@ -1,0 +1,32 @@
+einfügen
+"class_Enemy.eos", "class_Player.eos", "class_Stage.eos"
+*einfügen
+
+klasse Heart erweitert BaseObject
+	is_enabled:Boolean
+	
+	
+
+methode init(photo_value:Zeichenkette, x_pos:Integer, y_pos:Integer, strecken_value:Integer,fenstervalue:Fenster)  
+	photo := photo_value
+	ladebild(photo)
+	x := x_pos  
+	y := y_pos
+	strecken_faktor := strecken_value
+	strecken(strecken_faktor) 
+	breite := breiteLesen()  
+	höhe := höheLesen()
+	fenstervalue.zeichne(selbst)
+	verschiebenNach(x,y)
+	sichtbarSetzen(falsch)
+*methode
+methode removeheart(gamer1:player,indexvalue:Integer)
+	gamerhealtvalue:Integer
+	gamerhealtvalue = gamer1.health
+	wenn gamerhealtvalue < indexvalue dann
+		sichtbarSetzen(falsch)
+	*wenn
+*methode
+*klasse
+
+
